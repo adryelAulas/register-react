@@ -1,0 +1,11 @@
+### 32
+
+npm create react-app react-jwt-employee-task
+
+## Em public deixa apenas index.html
+
+## Em src deixa, index.js
+
+npm add bootswatch
+
+npm add react-router-dom
