@@ -27,7 +27,7 @@ git checkout main
 git pull
 
 npm add axios
-### 33
+### 34
 git checkout -b feature-34-nav
 
 git status
@@ -42,4 +42,20 @@ git checkout main
 
 git pull
 
+
+### 35
+
+git checkout -b feature-35-search-employee
+
+git status
+
+git add .
+
+git commit -m "feature 35 search employee"
+
+git push --set-upstream origin feature-35-navbar
+
+git checkout main
+
+git pull
 

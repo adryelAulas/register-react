@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import getEmployees from "../services/EmployeeService";
+import getEmployees, { getEmployeesSearch } from "../services/EmployeeService";
 
 
 function EmployeeList() {
@@ -20,8 +20,30 @@ function EmployeeList() {
             setEmployeeError(error)
         }
     }
+
+    const handleSearch =  async (event) =>{
+        const value = event.target.value
+        try {
+            if(value){
+                const employeeSearch = await getEmployeesSearch(value) 
+                setEmployees(employeeSearch)
+            }
+        } catch (error) {
+            console.error(error)
+            setEmployeeError(error)
+        }
+    }
     return (
-        <div className="card">
+    <>
+    <div className="card">
+        <div className="card-body">
+            <div style={{margin: '0 auto', marginTop: '1%'}}>
+                <label>Search:&nbsp;&nbsp;</label>
+                <input type="text" onChange={(event)=> handleSearch(event)}/>
+            </div>
+        </div>
+    </div>
+      <div className="card">
             <div className="card-body">
                 {
                     employeError?(
@@ -55,8 +77,10 @@ function EmployeeList() {
                 }
             </div>
         </div>
-    )
-}
-
+    
+    </>
+        )
+    }
+        
 
 export default EmployeeList
