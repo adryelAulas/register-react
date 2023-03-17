@@ -27,3 +27,19 @@ git checkout main
 git pull
 
 npm add axios
+### 33
+git checkout -b feature-34-nav
+
+git status
+
+git add .
+
+git commit -m "feature-34 navbar"
+
+git push --set-upstream origin feature-34-navbar
+
+git checkout main
+
+git pull
+
+
