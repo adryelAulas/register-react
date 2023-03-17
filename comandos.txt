@@ -9,3 +9,21 @@ npm create react-app react-jwt-employee-task
 npm add bootswatch
 
 npm add react-router-dom
+
+
+### 33
+git checkout -b feature-33-get-employee
+
+git status
+
+git add .
+
+git commit -m "feature-33-get-employee"
+
+git push --set-upstream origin feature-33-get-employee
+
+git checkout main
+
+git pull
+
+npm add axios
