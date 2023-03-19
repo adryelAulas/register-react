@@ -53,7 +53,22 @@ git add .
 
 git commit -m "feature 35 search employee"
 
-git push --set-upstream origin feature-35-navbar
+git push --set-upstream origin feature-35-search-employee
+
+git checkout main
+
+git pull
+### 36
+
+git checkout -b feature-36-add-employee
+
+git status
+
+git add .
+
+git commit -m "feature 36 add employee"
+
+git push --set-upstream origin feature-36-add-employee
 
 git checkout main
 
