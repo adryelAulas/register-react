@@ -13,5 +13,9 @@ export const getEmployeesSearch = async(value) =>{
     })
 return response.data
 }
+export const postEmployee = async ({name, position}) =>{
+await ApiAxios.post('/employees', {name,position})
+
+}
 
 export default getEmployees

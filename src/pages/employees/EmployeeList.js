@@ -1,12 +1,15 @@
+
+import {useNavigate } from 'react-router-dom'
 import React, { useEffect, useState } from "react";
-import getEmployees, { getEmployeesSearch } from "../services/EmployeeService";
+import getEmployees, { getEmployeesSearch } from "../../services/EmployeeService";
 
 
 function EmployeeList() {
 
+    
     const [employees, setEmployees] = useState([])
     const [employeError, setEmployeeError] = useState('')
-
+    
     useEffect(() => {
         reloadEmployees()
     }, [])
@@ -33,13 +36,24 @@ function EmployeeList() {
             setEmployeeError(error)
         }
     }
+    
+    const navigation = useNavigate()
+    
+    const onAdd = () =>{
+        navigation('/employee-form')
+}
+  
+   
+    
     return (
     <>
     <div className="card">
         <div className="card-body">
             <div style={{margin: '0 auto', marginTop: '1%'}}>
                 <label>Search:&nbsp;&nbsp;</label>
-                <input type="text" onChange={(event)=> handleSearch(event)}/>
+                <input type="text"  onChange={(event)=> handleSearch(event)}/>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <button className="btn btn-outline-light" onClick={onAdd}>Add</button>
             </div>
         </div>
     </div>
