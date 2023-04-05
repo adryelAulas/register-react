@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getEmployeeById } from "../../services/EmployeeService";
+import moment from 'moment'
 
 function EmployeeShow() {
   const { id } = useParams();
@@ -84,6 +85,32 @@ function EmployeeShow() {
                       </label>
                       <span className="form-control" name="name">
                         {employee?.position}
+                      </span>
+                    </div>
+                  </form>
+                </div>
+                <div className="card-footer">
+                  <form>
+                    <div className="form-group">
+                      <label
+                        htmlFor="created_at"
+                        className="form-control-label"
+                      >
+                        Created At
+                      </label>
+                      <span className="form-control" name="name">
+                        {moment(employee?.created_at).fromNow()}
+                      </span>
+                    </div>
+                    <div className="form-group">
+                      <label
+                        htmlFor="updated_at"
+                        className="form-control-label"
+                      >
+                        Updated At
+                      </label>
+                      <span className="form-control" name="name">
+                      {moment(employee?.updated_at).fromNow()}
                       </span>
                     </div>
                   </form>
