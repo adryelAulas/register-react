@@ -1,8 +1,9 @@
 
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getEmployeeById } from "../../services/EmployeeService";
+import { deleteEmployeeById, getEmployeeById } from "../../services/EmployeeService";
 import moment from 'moment'
+import {FaRegTrashAlt} from 'react-icons/fa'
 
 function EmployeeShow() {
   const { id } = useParams();
@@ -30,6 +31,13 @@ function EmployeeShow() {
       setEmployeeError(error);
     }
   };
+
+  const onDelete =  async (id) => {
+    const {status} = await deleteEmployeeById(id)
+    if ( status === 200) {
+    navigation.goBack()
+    }
+  }
 
   const navigation = useNavigate();
 
@@ -60,8 +68,9 @@ function EmployeeShow() {
             </div>
             <div className="col-md-4 py-2">
               <div className="card bg-primary text-white">
-                <div className="card-header text-center">
+                <div className="card-header d-flex justify-content-between">
                   <h4 className="card-text">Employee</h4>
+                  <button className="btn btn-outline-light border-0" onClick={()=>{if(window.confirm('Are you sure?')) onDelete(employee?.id)}}><FaRegTrashAlt/></button>
                 </div>
                 <div className="card-body">
                   <form>

@@ -27,4 +27,8 @@ await ApiAxios.post('/employees', {name,position})
 }
 
 
+export const deleteEmployeeById = async (id)=>{
+    return await ApiAxios.delete(`/employees/${id}`)
+}
+
 export default getEmployees

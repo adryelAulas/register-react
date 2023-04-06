@@ -90,5 +90,20 @@ git checkout main
 
 git pull
 
-aaaa
+### 38
+
+git checkout -b feature-38-delete-employee
+
+git status
+
+git add .
+
+git commit -m "feature 38 delete employee"
+
+git push --set-upstream origin feature-38-delete-employee
+
+git checkout main
+
+git pull
+
 
