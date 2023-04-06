@@ -1,8 +1,8 @@
 
-import {useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import React, { useEffect, useState } from "react";
 import getEmployees, { getEmployeesSearch } from "../../services/EmployeeService";
-
+import '../pages.css'
 
 function EmployeeList() {
 
@@ -43,7 +43,9 @@ function EmployeeList() {
         navigation('/employee-form')
 }
   
-   
+const onShow = (id) =>{
+    navigation(`/employee-show/${id}`)
+}
     
     return (
     <>
@@ -67,7 +69,7 @@ function EmployeeList() {
                     )
                     : employees.map(e =>(
                         <div key={e.id}>
-                            <div className="card">
+                            <div className="card onHoverColor" style={{cursor: 'pointer'}} onDoubleClick={()=> onShow(e.id)}>
                                <div className="card-header bg-secondary"></div>
                                 <div className="card-body">
                                 <div className="row">
@@ -85,6 +87,7 @@ function EmployeeList() {
                                     </div>
                                 </div>
                                 </div>
+                              
                             </div>
                         </div>
                     ))

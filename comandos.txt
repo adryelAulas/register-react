@@ -74,3 +74,36 @@ git checkout main
 
 git pull
 
+### 37
+
+git checkout -b feature-37-add-employee
+
+git status
+
+git add .
+
+git commit -m "feature 37 show employee"
+
+git push --set-upstream origin feature-37-show-employee
+
+git checkout main
+
+git pull
+
+### 38
+
+git checkout -b feature-38-delete-employee
+
+git status
+
+git add .
+
+git commit -m "feature 38 delete employee"
+
+git push --set-upstream origin feature-38-delete-employee
+
+git checkout main
+
+git pull
+
+

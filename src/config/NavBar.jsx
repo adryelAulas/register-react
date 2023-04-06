@@ -31,6 +31,8 @@ function NavBar(){
                 <li className="nav-item" >
                 <NavLink to="/employee-list" className="nav-link" onClick={handleToggle}>Employees</NavLink>
                 </li>
+                
+               
             </ul>
             </div>  
         </nav>
