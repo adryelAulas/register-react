@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { deleteEmployeeById, getEmployeeById } from "../../services/EmployeeService";
 import moment from 'moment'
-import {FaRegTrashAlt} from 'react-icons/fa'
+import { FaRegTrashAlt, FaPencilAlt } from 'react-icons/fa'
 
 function EmployeeShow() {
   const { id } = useParams();
-  
+
   const employeeId = parseInt(id, 10);
   const [employee, setEmployee] = useState({});
 
@@ -32,13 +32,15 @@ function EmployeeShow() {
     }
   };
 
-  const onDelete =  async (id) => {
-    const {status} = await deleteEmployeeById(id)
-    if ( status === 200) {
-    navigation.goBack()
+  const onEdit = async (id) => {
+    navigation(`/employee-edit/${id}`)
+  }
+  const onDelete = async (id) => {
+    const { status } = await deleteEmployeeById(id)
+    if (status === 200) {
+      navigation.goBack()
     }
   }
-
   const navigation = useNavigate();
 
   return (
@@ -69,8 +71,9 @@ function EmployeeShow() {
             <div className="col-md-4 py-2">
               <div className="card bg-primary text-white">
                 <div className="card-header d-flex justify-content-between">
+                  <button className="btn btn-outline-light border-0" onClick={() => { if (window.confirm('Are you sure to edit?')) onEdit(employee?.id) }}><FaPencilAlt /></button>
                   <h4 className="card-text">Employee</h4>
-                  <button className="btn btn-outline-light border-0" onClick={()=>{if(window.confirm('Are you sure?')) onDelete(employee?.id)}}><FaRegTrashAlt/></button>
+                  <button className="btn btn-outline-light border-0" onClick={() => { if (window.confirm('Are you sure?')) onDelete(employee?.id) }}><FaRegTrashAlt /></button>
                 </div>
                 <div className="card-body">
                   <form>
@@ -119,7 +122,7 @@ function EmployeeShow() {
                         Updated At
                       </label>
                       <span className="form-control" name="name">
-                      {moment(employee?.updated_at).fromNow()}
+                        {moment(employee?.updated_at).fromNow()}
                       </span>
                     </div>
                   </form>

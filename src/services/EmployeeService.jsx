@@ -27,8 +27,13 @@ await ApiAxios.post('/employees', {name,position})
 }
 
 
+
 export const deleteEmployeeById = async (id)=>{
     return await ApiAxios.delete(`/employees/${id}`)
+}
+
+export const putEmployee = async (id,{name, position, created_at}) =>{
+    await ApiAxios.put(`/employees/${id}`, {name, position, created_at})
 }
 
 export default getEmployees

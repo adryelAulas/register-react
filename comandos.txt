@@ -107,3 +107,18 @@ git checkout main
 git pull
 
 
+### 39
+
+git checkout -b feature-39-edit-employee
+
+git status
+
+git add .
+
+git commit -m "feature 39 edit employee"
+
+git push --set-upstream origin feature-39-edit-employee
+
+git checkout main
+
+git pull
