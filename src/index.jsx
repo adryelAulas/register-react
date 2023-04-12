@@ -15,6 +15,7 @@ import EmployeeList from './pages/employees/EmployeeList'
 import ErrorPage from './pages/ErrorPage';
 import EmployeeShow from './pages/employees/EmployeeShow';
 import EmployeeEdit from './pages/employees/employeeEdit';
+
 // const router = ([{
 //   path: "/",
 //   element: <Home/>
@@ -36,8 +37,7 @@ const router = createBrowserRouter ([
     {
       path: "/",
       element:<Home/>
-    },
-    
+    }, 
     {
       path: "/employee-form",
       element:<EmployeeForm/>
